@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="XML.Escena.AlbumC"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox
+            spacing="40"
+            alignment="CENTER"
+            AnchorPane.topAnchor="45"
+            AnchorPane.rightAnchor="20"
+            AnchorPane.leftAnchor="20">
+
+        <Label
+                text="Nombre del Album:"/>
+        <TextField
+                fx:id="txtTitulo"/>
+        <Label
+                text="Nombre del Artista:"/>
+        <ComboBox
+                fx:id="cmbArtista"/>
+        <HBox
+                alignment="CENTER"
+                spacing="30" >
+            <Button
+                    onAction="#handleAceptarAction"
+                    text="Aceptar"/>
+            <Button
+                    onAction="#handleBorrarAction"
+                    text="Borrar"/>
+            <Button
+                    onAction="#handleCancelarAction"
+                    text="Cancelar"/>
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

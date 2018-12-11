@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="XML.Escena.EmpleadoC"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox
+            spacing="40"
+            alignment="CENTER"
+            AnchorPane.topAnchor="25"
+            AnchorPane.rightAnchor="0"
+            AnchorPane.leftAnchor="0">
+        <padding>
+            <javafx.geometry.Insets bottom="20" top="20" left="20" right="20"/>
+        </padding>
+
+        <TableView
+                fx:id="tableEmpleados">
+            <columns>
+                <TableColumn
+                        fx:id="tabcolId"
+                        text="ID"/>
+                <TableColumn
+                        fx:id="tabcolNombre"
+                        text="Nombre"/>
+                <TableColumn
+                        fx:id="tabcolApellidos"
+                        text="Apellidos"/>
+                <TableColumn
+                        fx:id="tabcolTitulo"
+                        text="Titulo"/>
+                <TableColumn
+                        fx:id="tabcolEmail"
+                        text="Email"/>
+            </columns>
+        </TableView>
+
+        <HBox
+                alignment="CENTER"
+                spacing="20" >
+            <Button
+                    onAction="#handleVerAction"
+                    text="Ver Detalle"
+                    AnchorPane.bottomAnchor="25" />
+            <Button
+                    onAction="#handleModificarAction"
+                    text="Modificar"
+                    AnchorPane.bottomAnchor="25" />
+            <Button
+                    onAction="#handleEliminarAction"
+                    text="Eliminar"
+                    AnchorPane.bottomAnchor="25" />
+
+
+        </HBox>
+
+    </VBox>
+</AnchorPane>

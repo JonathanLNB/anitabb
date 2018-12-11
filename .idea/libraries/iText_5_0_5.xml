@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="iText-5.0.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Descargas/Chinook/dist/lib/iText-5.0.5.jar!/" />
+      <root url="jar://$USER_HOME$/Descargas/Chinook/dist/lib/mysql-connector-java-5.1.39-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

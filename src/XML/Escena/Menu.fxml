@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="XML.Escena.MenuC"
+            prefHeight="400.0" prefWidth="800.0">
+    <MenuBar
+            fx:id="menuBar"
+            AnchorPane.topAnchor="0"
+            AnchorPane.leftAnchor="0"
+            AnchorPane.rightAnchor="0"
+            style="-fx-background-color: #4db6ac;" >
+
+        <Menu
+                fx:id="menuArchivo"
+                text="Archivo" >
+            <items>
+                <MenuItem
+                        fx:id="mPDF"
+                        text="Exportar a PDF"
+                        onAction="#menu"/>
+            </items>
+            <Menu
+                    text="Nuevo">
+                <items>
+                    <MenuItem
+                            text="Empleado"
+                            onAction="#handleNewEmpleadoAction" />
+                    <MenuItem
+                            text="Cliente"
+                            onAction="#handleNewCustomerAction" />
+                    <MenuItem
+                            text="Artista"
+                            onAction="#handleNewArtistAction"/>
+                    <MenuItem
+                            text="Álbum"
+                            onAction="#handleNewAlbumAction" />
+                    <MenuItem
+                            text="Genero"
+                            onAction="#handleNewGenreAction" />
+                    <MenuItem
+                            text="Tipos de Medios"
+                            onAction="#handleNewMedioAction"/>
+                </items>
+            </Menu>
+
+            <Menu
+                    text="Consultar">
+                <items>
+                    <MenuItem
+                            text="Empleado"
+                            onAction="#handleVerEmpleadoAction" />
+                    <MenuItem
+                            onAction="#handleViewCustomerAction"
+                            text="Cliente"/>
+                    <MenuItem
+                            onAction="#handleViewAlbumAction"
+                            text="Álbum"/>
+                    <MenuItem
+                            onAction="#handleViewArtistAction"
+                            text="Artista"/>
+                    <MenuItem
+                            onAction="#handleViewGenreAction"
+                            text="Genero"/>
+                    <MenuItem
+                            onAction="#handleViewMediaAction"
+                            text="Tipos de Medios"/>
+                </items>
+            </Menu>
+        </Menu>
+        <Menu
+                fx:id="menuCatalogo"
+                text="Catalogo">
+            <items>
+                <MenuItem
+                        fx:id="mnitVerCatalogo"
+                        text="Ver Catalogo"
+                        onAction="#handleVerCatalogoAction" />
+                <SeparatorMenuItem />
+                <MenuItem
+                        fx:id="mnitAddTrack"
+                        text="Agregar Pista"
+                        onAction="#handleNewTrackAction" />
+            </items>
+
+        </Menu>
+        <Menu
+                text="Listas de Reproducción">
+            <items>
+                <MenuItem
+                        text="Crear nueva lista"
+                        onAction="#handleNewPlaylistAction" />
+                <MenuItem
+                        text="Ver todas las listas"
+                        onAction="#handleViewPlaylistAction" />
+
+            </items>
+        </Menu>
+        <Menu
+                text="Ayuda">
+            <items>
+                <MenuItem
+                        text="Acerca de"
+                        onAction="#handleAcercaDe" />
+            </items>
+        </Menu>
+    </MenuBar>
+
+    <VBox
+            spacing="40"
+            alignment="CENTER"
+            AnchorPane.topAnchor="25"
+            AnchorPane.leftAnchor="0">
+        <padding>
+            <javafx.geometry.Insets bottom="20" top="20" left="20" right="20"/>
+        </padding>
+
+        <TableView
+                fx:id="tableCarrito">
+            <columns>
+                <TableColumn
+                        fx:id="tabcolName"
+                        text="Nombre"
+                        minWidth="250" />
+
+                <TableColumn
+                        fx:id="tabcolPrice"
+                        text="Precio"
+                        minWidth="100" />
+
+            </columns>
+        </TableView>
+
+        <HBox
+                alignment="CENTER"
+                spacing="20" >
+            <Button
+                    fx:id="btnAdd"
+                    onAction="#handleVerCatalogoAction"
+                    text="Agregar"
+                    AnchorPane.bottomAnchor="25" />
+            <Button
+                    fx:id="btnEliminar"
+                    text="Eliminar"
+                    onAction="#handleEliminarAction"
+                    AnchorPane.bottomAnchor="25" />
+            <Button
+                    fx:id="btnCleanCarrito"
+                    text="Limpiar Carrito"
+                    onAction="#handleCleanCarritoAction"
+                    AnchorPane.bottomAnchor="25" />
+
+        </HBox>
+
+    </VBox>
+    <VBox
+            fx:id="vbDatos"
+            AnchorPane.topAnchor="30"
+            AnchorPane.rightAnchor="25"
+            spacing="30">
+        <padding>
+            <javafx.geometry.Insets bottom="20" top="20" left="20" right="20"/>
+        </padding>
+        <GridPane
+                fx:id="gridDatos"
+                hgap="20"
+                vgap="20"  >
+            <Label
+                    text="Vendedor"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="0"  />
+            <ComboBox
+                    fx:id="cmbVendedor"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="0"  />
+            <Label
+                    text="Comprador"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="1"  />
+            <ComboBox
+                    fx:id="cmbComprador"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"  />
+
+        </GridPane>
+        <Label
+                fx:id="lTotal"
+                text="Total: "/>
+        <HBox
+                alignment="CENTER"
+                spacing="20" >
+            <Button
+                    onAction="#handleComprarAction"
+                    text="Pagar"
+            />
+            <Button
+                    onAction="#handleCancelarAction"
+                    text="Cancelar"
+            />
+            <Button
+                    onAction="#handleCalcularAction"
+                    text="Calcular"
+            />
+        </HBox>
+        <ImageView fx:id="iMZone" fitHeight="250" fitWidth="250"/>
+    </VBox>
+
+</AnchorPane>
+
