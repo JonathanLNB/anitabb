@@ -11,6 +11,7 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -40,7 +41,7 @@ public class MenuC implements Initializable{
     public static ObservableList<Track> carrito;
 
     @FXML
-    private MenuItem mPDF, mSalir;
+    private MenuItem mPDF, mSalir, mGrafica;
     @FXML
     private ComboBox<Empleado> cmbVendedor;
     @FXML
@@ -376,6 +377,38 @@ public class MenuC implements Initializable{
 
         msg.setTitle("Ver Información");
         msg.setHeaderText("Acerca De ");
+        msg.getDialogPane().setContent(panel);
+        msg.show();
+    }
+    @FXML
+    public void grafica() {
+        Alert msg = new Alert(Alert.AlertType.INFORMATION);
+        VBox panel = new VBox();
+        panel.setSpacing(20);
+        panel.setStyle("-fx-background-color: #ffffff");
+        panel.setAlignment(Pos.CENTER);
+
+        FlowPane pane = new FlowPane();
+        pane.setOrientation(Orientation.HORIZONTAL);
+        pane.setAlignment(Pos.CENTER);
+
+        Label nombre, tarea, materia, carrera;
+        ImageView logo;
+        nombre = new Label("Grafica de géneros");
+        nombre.setFont(new Font(18));
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+        ObservableList<Genero> generos = Main.con.getCantidad();
+        for (Genero g: generos) {
+            pieChartData.add(new PieChart.Data(g.getNombre(), g.getCant()));
+        }
+        PieChart pieChart = new PieChart(pieChartData);
+        pieChart.setTitle("Géneros");
+        pieChart.setLabelsVisible(true);
+        panel.getChildren().addAll(pane, nombre, pieChart);
+
+        msg.setTitle("Ver Información");
+        msg.setHeaderText("Grafica");
         msg.getDialogPane().setContent(panel);
         msg.show();
     }

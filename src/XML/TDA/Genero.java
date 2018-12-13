@@ -6,10 +6,15 @@ package XML.TDA;
 public class Genero {
     private Integer id;
     private String nombre;
+    private int cant;
 
     public Genero(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+    }
+    public Genero( String nombre, int cant) {
+        this.nombre = nombre;
+        this.cant = cant;
     }
 
     public Genero(String s) {
@@ -23,6 +28,11 @@ public class Genero {
     public String getNombre() {
         return nombre;
     }
+
+    public int getCant() {
+        return cant;
+    }
+
     public String toString() {
         return nombre;
     }

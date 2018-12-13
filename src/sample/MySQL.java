@@ -194,6 +194,25 @@ public class MySQL {
         }
         return list;
     }
+    public ObservableList<Genero> getCantidad(){
+        ObservableList<Genero> list=FXCollections.observableArrayList();
+
+        try {
+            String query = "select g.Name, count(*) from track t join genre g on t.GenreId = g.GenreId group by 1;";
+            Statement st = Conexion.createStatement();
+            ResultSet rs;
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                list.add(new Genero(
+                        rs.getString(1),
+                        rs.getInt(2)
+                ));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al recuperar información..."+ex.getLocalizedMessage());
+        }
+        return list;
+    }
     public ObservableList<Track> getPlaylistSongs(PlayList pl){
         ObservableList<Track> list=FXCollections.observableArrayList();
 

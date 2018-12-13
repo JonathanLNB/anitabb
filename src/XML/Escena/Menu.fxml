@@ -26,6 +26,10 @@
                         fx:id="mPDF"
                         text="Exportar a PDF"
                         onAction="#menu"/>
+                <MenuItem
+                        fx:id="mGrafica"
+                        text="Mostrar Grafica"
+                        onAction="#grafica"/>
             </items>
             <Menu
                     text="Nuevo">
